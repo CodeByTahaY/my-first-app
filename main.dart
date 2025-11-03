@@ -1,3 +1,5 @@
+import 'dart:io';
+
 void main() {
   // //Q1) If a student has marks greater than 40 has attended more than 75% classes, print "Pass",
   // //otherwise "Fail"
@@ -165,40 +167,110 @@ void main() {
 
   // Assigment 3
   //Q.1) Create a list of names and print all names using list.
-  List<String> name = ['Taha', 'Babar', 'Ahmed'];
-  print(name);
+  // List<String> name = ['Taha', 'Babar', 'Ahmed'];
+  // print(name);
   //Q.2) Create a list of Days and print only  Sunday
-  List<String> days = [
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Firday',
-    'Saturday',
-    'Sunday',
-  ];
-  print(days[6]);
+  // List<String> days = [
+  //   'Monday',
+  //   'Tuesday',
+  //   'Wednesday',
+  //   'Thursday',
+  //   'Firday',
+  //   'Saturday',
+  //   'Sunday',
+  // ];
+  // print(days[6]);
 
   //Q.3) create a list  of name, class, roll no, grade, percentage. And print.
-  List student = ['John', '10th', 1, 'A', 92.5];
-  print(student);
+  // List student = ['John', '10th', 1, 'A', 92.5];
+  // print(student);
 
   //Q.4) Create a list of numbers & write a program to get the smallest & greatest number from a list.
-  List<int> numbers = [45, 12, 89, 33, 67, 5, 90, 21];
-  numbers.sort();
-  int smallest = numbers.first;
-  int greatest = numbers.last;
-  print(numbers);
-  print(smallest);
-  print(greatest);
+  // List<int> numbers = [45, 12, 89, 33, 67, 5, 90, 21];
+  // numbers.sort();
+  // int smallest = numbers.first;
+  // int greatest = numbers.last;
+  // print(numbers);
+  // print(smallest);
+  // print(greatest);
 
   //Q.5) Given a list of integers, write a dart code that returns the maximum value from the list.
-  int maxValue = numbers.last;
-  print(maxValue);
+  // int maxValue = numbers.last;
+  // print(maxValue);
 
   //Q.6) Write a Dart code that takes in a list of strings and prints a new list with the elements
   //in reverse order. The original list should remain unchanged.
-  List<String> fruits = ['Apple', 'Banana', 'Cherry', 'Mango', 'Orange'];
+  // List<String> fruits = ['Apple', 'Banana', 'Cherry', 'Mango', 'Orange'];
+  // List<String> reversedFruits = [
+  //   fruits[4],
+  //   fruits[3],
+  //   fruits[2],
+  //   fruits[1],
+  //   fruits[0],
+  // ];
+
+  // print(fruits);
+  // print(reversedFruits);
+
+  //Q.7) Implement a Dart code that uses the where() method to filter out negative numbers from a list of
+  //integers. The program should take in the original list as a parameter and print a new list
+  //containing only the positive numbers.
+
+  //Q.8) remove all false values from below list by using removeWhere or retainWhere property.
+  //List<String> usersEligibility = ['John', 'Alice', 'eligible', 'Mike', 'Sarah', 'Tom'];
+
+  //#Assigment 4
+  // Q.1: Write a Dart code that takes in a list of strings and removes any duplicate elements,
+  // returning a new list without duplicates. The order of elements in the new list should be the
+  // same as in the original list.
+  List<String> fruits = [
+    'Apple',
+    'Banana',
+    'Cherry',
+    'Mango',
+    'Orange',
+    'Mango',
+  ];
+  List<String> newfruits = fruits.toSet().toList();
+  print(fruits);
+  print(newfruits);
+
+  // Q.2: Write a Dart code that takes in a list and an integer n as parameters. The program should print
+  // a new list containing the first n elements from the original list.
+  List<int> originalList = [1, 2, 3, 4, 5];
+  int n = 3;
+  List<int> newList = [];
+
+  if (n == 1) {
+    newList = [originalList[0]];
+  } else if (n == 2) {
+    newList = [originalList[0], originalList[1]];
+  } else if (n == 3) {
+    newList = [originalList[0], originalList[1], originalList[2]];
+  } else if (n == 4) {
+    newList = [
+      originalList[0],
+      originalList[1],
+      originalList[2],
+      originalList[3],
+    ];
+  } else if (n == 5) {
+    newList = [
+      originalList[0],
+      originalList[1],
+      originalList[2],
+      originalList[3],
+      originalList[4],
+    ];
+  } else {
+    print("Invalid n");
+  }
+
+  print(newList);
+
+  // Q.3: Write a Dart code that takes in a list of strings and prints a new list with the elements in
+  // reverse order. The original list should remain unchanged.
+
   List<String> reversedFruits = [
     fruits[4],
     fruits[3],
@@ -210,10 +282,84 @@ void main() {
   print(fruits);
   print(reversedFruits);
 
-  //Q.7) Implement a Dart code that uses the where() method to filter out negative numbers from a list of
-  //integers. The program should take in the original list as a parameter and print a new list
-  //containing only the positive numbers.
+  // Q.4: Implement a code that takes in a list of integers and returns a new list containing only the
+  // unique elements from the original list. The order of elements in the new list should be the same as
+  // in the original list.
 
-  //Q.8) remove all false values from below list by using removeWhere or retainWhere property.
-  //List<String> usersEligibility = ['John', 'Alice', 'eligible', 'Mike', 'Sarah', 'Tom'];
+  List<int> reallist = [1, 2, 2, 3, 1];
+  List<int> newList1 = [];
+
+  if (reallist.length > 0 && !newList1.contains(reallist[0])) {
+    newList1.add(reallist[0]);
+  }
+
+  if (reallist.length > 1 && !newList1.contains(reallist[1])) {
+    newList1.add(reallist[1]);
+  }
+
+  if (reallist.length > 2 && !newList1.contains(reallist[2])) {
+    newList1.add(reallist[2]);
+  }
+
+  if (reallist.length > 3 && !newList1.contains(reallist[3])) {
+    newList1.add(reallist[3]);
+  }
+
+  if (reallist.length > 4 && !newList1.contains(reallist[4])) {
+    newList1.add(reallist[4]);
+  }
+
+  print(newList1);
+
+  // Q.5: Write a Dart code that takes in a list of integers and prints a new list with the elements sorted
+  // in ascending order. The original list should remain unchanged.
+  List<int> mainlist = [5, 2, 8, 1, 4];
+  List<int> sortedList = List.from(mainlist);
+  sortedList.sort();
+  print(sortedList);
+  print(mainlist);
+
+  // print('Enter integers separated by spaces:');
+  // String? input = stdin.readLineSync();
+
+  // Q.6: Implement a Dart code that uses the where() method to filter out negative numbers from a list of
+  // integers. The program should take in the original list as a parameter and print a new list containing only the positive numbers.
+
+  // Q.7: Implement a Dart code that uses the where() method to filter out odd numbers from a list of
+  //integers. The program should take in the original list as a parameter and print a new list containing
+  // only the even numbers.
+
+  // Q.8: Given a list of integers, write a Dart code that uses the map() method to create a new list with
+  // each value squared. The program should take in the original list as a parameter and print the new list.
+
+  // //                                                                                  OR
+
+  // Q.8: Create a map named "person" with the following key-value pairs: "name" as "John", "age" as 25,
+  // "isStudent" as true. Write a Dart code to check if the person is both a student and over 18 years old.
+  // Print "Eligible" if both conditions are true, otherwise print "Not eligible".
+
+  // Q.9: Given a map representing a product with keys "name", "price", and "quantity", write Dart code to
+  // check if the product is in stock. If the quantity is greater than 0, print "In stock", otherwise print
+  // "Out of stock".
+
+  // Q.10: Create a map named "car" with the following key-value pairs: "brand" as "Toyota", "color" as "Red",
+  // "isSedan" as true. Write Dart code to check if the car is a sedan and red in color. Print "Match"
+  // if both conditions are true, otherwise print "No match".
+
+  // Q.11: Given a map representing a user with keys "name", "isAdmin", and "isActive", write Dart code to
+  // check if the user is an active admin. If the user is both an admin and active, print "Active admin",
+  // otherwise print "Not an active admin".
+
+  // Q.12: Given a map representing a shopping cart with keys as product names and values as quantities,
+  // write Dart code to check if a product named "Apple" exists in the cart. Print "Product found"
+  // if it exists, otherwise print "Product not found".
+
+  // Q13: Differentiate between and with an example.
+
+  // Q14:What will happen if you try to apply ++ on a constant value like 5++?
+  // ANS) It will give an error.
+
+  // Q15: Is a = a + 1 the same as a++ in Dart? If not, explain the difference.
+  // ANS)  Both are different as a = a+1 will give the answer 5 assuming a value is defined as 4 however
+  // a++ will give the answer 5 in the next turn it will increase the value.
 }
